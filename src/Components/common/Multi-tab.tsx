@@ -3,10 +3,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Courseform from '../Form';
+import Secondform from '../FornTabSecond';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -26,8 +26,8 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
+        <Box>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -60,8 +60,8 @@ export default function SimpleTabs() {
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Batch Details" {...a11yProps(0)} />
-          <Tab label="Live Session" {...a11yProps(1)} />
+          <Tab label="Material UI Form" {...a11yProps(0)} />
+          <Tab label="Formik Form" {...a11yProps(1)} />
           <Tab label="Topics" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
@@ -69,7 +69,7 @@ export default function SimpleTabs() {
         <Courseform />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Secondform />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
