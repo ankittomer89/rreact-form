@@ -72,7 +72,7 @@ export default function SimpleTabs() {
         <Secondform />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        THird Tab
       </TabPanel>
     </div>
   );

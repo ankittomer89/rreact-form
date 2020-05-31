@@ -16,6 +16,7 @@
     "@types/react-dom": "^16.9.8",
     "bootstrap": "^4.5.0",
     "formik": "^2.1.4",
+    "jest-enzyme": "^7.1.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -42,6 +43,20 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-jest": "^26.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-15": "^1.4.1",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "jest": "^26.0.1",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }

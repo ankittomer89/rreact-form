@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './common/CommonCss';
 import FormBody from './FormBody';
 import Countery from './Extra/Extra.json';
-import Validation from './Validation/Validation';
+import { ValidationLogic } from './Validation/Validation';
 
 export default function FormPropsTextFields() {
     const [inputValue, setInputValue] = useState({ betchName: '', category: '', from: '', to: '', nosOfLiveSession: '', subject: '', details: '' });
@@ -24,12 +24,12 @@ export default function FormPropsTextFields() {
             [name ? name : selectLabel]: formVal,
         });
     }
-    const onSubmit = (e:any) => {
+    const onSubmit = (e: any) => {
         e.preventDefault();
-        setError(Validation(inputValue))
+        setError(ValidationLogic(inputValue))
 
-        //Call submit form data API if error.length 
-        // console.log('-------------error------------->', error)
+        //Call submit form data API if there is no error
+
         console.log('-------------Form Values------------->', inputValue)
     }
     return (

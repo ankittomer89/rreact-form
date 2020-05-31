@@ -1,13 +1,14 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
 import useStyles from './common/CommonCss';
 import logo from '../download.jpg';
+import Countery from './Extra/Extra.json';
+import { validationSchema } from './Validation/Validation';
 
 const initialValues = {
     betchName: '',
-    category:'',
+    category: '',
     from: '',
     to: '',
     subject: '',
@@ -15,19 +16,20 @@ const initialValues = {
     details: '',
 
 }
-const validationSchema = yup.object({
-    betchName: yup.string().required('BetchName is Required!'),
-    category: yup.string().required('Category is Required!'),
-    from: yup.string().required('Start Date is Required!'),
-    to: yup.string().required('End Date is Required!'),
-    subject: yup.string().required('Subject is Required!'),
-    nosOfLiveSession: yup.string().required('Nos Of Live Session is Required!'),
-    details: yup.string().required('Details it is Required!'),
-})
+
 
 const onSubmit = (values: any) => {
+    //Call submit form data API if there is no error
     console.log('-----Form values---->', values)
 }
+let options = Countery.map((data, id) =>
+    <option
+        key={id}
+        value={data.Cname}
+    >
+        {data.Cname}
+    </option>
+);
 
 export default function FormSecondFields() {
     const classes = useStyles();
@@ -57,10 +59,9 @@ export default function FormSecondFields() {
                                 <div className='col-sm-6'>
                                     <label htmlFor='category'> Category*</label>
                                     <Field name="category" id='category' as="select" className="form-control" placeholder="Favorite Color">
-                                    <option value="red">Red</option>
-                                    <option value="green">Green</option>
-                                    <option value="blue">Blue</option>
-                                  </Field>
+                                        {options}
+
+                                    </Field>
                                     <ErrorMessage name='category' >
                                         {ErrorMessage => <div className={classes.errorClass}> {ErrorMessage} </div>}
                                     </ErrorMessage>
